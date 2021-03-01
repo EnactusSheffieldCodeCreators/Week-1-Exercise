@@ -61,3 +61,29 @@ current_prime = 2
 ```
 
 Renaming these variables like this we can get rid of the comments as they don't really need to be there. This should be the objective of variable names, make the name as self explanatory as possible. Also take note of the use of `joined_lower` for the variable names, this is standard practice for naming instance variables in python.
+
+# Break Condition
+
+For this bit let's focus on a specific section of the code:
+
+```python
+# Breaks out of loop when the value of input_number is prime.
+if input_number==current_prime:
+    input_number = 0
+    prime_factors.append(current_prime) # Append current_prime to the list of prime factors.
+    break
+```
+
+This section breaks out of the loop when the `input_number` is reduced to a prime because we know we are done at that point and can just take that prime to be the last prime factor. So here's how we improve this code:
+
+```python
+    # Breaks out of loop when the value of input_number is prime.
+    if input_number == current_prime:
+        prime_factors.append(current_prime)
+        break
+```
+
+This bit is already pretty clean here's a list of what changed:
+- Added spaces between variables and `==` on the if line to make it easier to read.
+- Removed useless line that sets `input_number` to 0, it isn't needed as we never use `input_number` again
+- Removed comment on the line where the prime is appended to the list `prime_factors` as the code is now self explanatory enough.

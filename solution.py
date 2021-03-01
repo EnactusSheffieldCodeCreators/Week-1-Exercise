@@ -7,9 +7,8 @@ current_prime = 2
 
 while True:
     # Breaks out of loop when the value of input_number is prime.
-    if input_number==current_prime:
-        input_number = 0
-        prime_factors.append(current_prime) # Append current_prime to the list of prime factors.
+    if input_number == current_prime:
+        prime_factors.append(current_prime)
         break
 
     # Checks if the current value of current_prime is a factor of input_number.
