@@ -20,20 +20,13 @@ def advance_prime(prime):
         if check_if_prime(prime):
             return prime
 
-while True:
-    # Breaks out of loop when the value of input_number is prime.
-    if input_number == current_prime:
-        prime_factors.append(current_prime)
-        break
-
-    # Loops until it has removed all the prime factors of input_number 
-    # with the value current_prime.
-    while (input_number/current_prime).is_integer():
+while input_number != 1:
+    # Checks if current_prime is a factor of input_number
+    if (input_number/current_prime).is_integer():
         prime_factors.append(current_prime) 
         input_number = int(input_number/current_prime) 
-
-    current_prime = advance_prime(current_prime)
-
+    else: # Advances to the next prime if current_prime isn't a factor
+        current_prime = advance_prime(current_prime)
 
 # Print out the largest value of the list of primes.
 print(max(prime_factors))

@@ -154,3 +154,58 @@ Here I've actually broken it down into 2 functions just to make the functionalit
 ```python
 current_prime = advance_prime(current_prime)
 ```
+
+## Errors
+
+If you've layed around with the code you may have noticed that the code will enter an endless loop if you happen to input a value like `4`. And you'll need to ctrl+c to exit the program at that point. This is because when there is a number with more than 1 of the same prime factor the program misses the break condition and loops forever.
+
+The solution to this is to change the break condition.
+
+```python
+while True:
+    # Loops until it has removed all the prime factors of input_number 
+    # with the value current_prime.
+    while (input_number/current_prime).is_integer():
+        prime_factors.append(current_prime) 
+        input_number = int(input_number/current_prime) 
+        if input_number == 1:
+            break
+
+    current_prime = advance_prime(current_prime)
+
+    if input_number == 1:
+        break
+```
+
+This way we even manage to reduce the amount of repeated code. Although we still have a repeated if condition, we can again reduce this out with some careful restructuring of the surrounding code.
+
+```python
+while True:
+    # Checks if current_prime is a factor of input_number
+    if (input_number/current_prime).is_integer():
+        prime_factors.append(current_prime) 
+        input_number = int(input_number/current_prime) 
+    else: # Advances to the next prime if current_prime isn't a factor
+        current_prime = advance_prime(current_prime)
+
+    if input_number == 1:
+        break
+```
+
+And this way we actually manage to get rid of the nested loops from before. 
+
+Finally we can actually remove the break condition and integrate it as part of the while loop.
+
+```python
+while input_number != 1:
+    # Checks if current_prime is a factor of input_number
+    if (input_number/current_prime).is_integer():
+        prime_factors.append(current_prime) 
+        input_number = int(input_number/current_prime) 
+    else: # Advances to the next prime if current_prime isn't a factor
+        current_prime = advance_prime(current_prime)
+```
+
+# Final Note
+
+Don't worry if all the changes here didn't make sense we will be covering all this material in the following weeks in far greater detail.
