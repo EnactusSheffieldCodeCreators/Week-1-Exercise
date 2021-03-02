@@ -11,7 +11,7 @@ while True:
         pn.append(c)
         break
 
-    if (n/c).is_integer():
+    while (n/c).is_integer():
         pn.append(c)
         n = int(n/c)
 
