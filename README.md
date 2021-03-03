@@ -209,3 +209,11 @@ while input_number != 1:
 # Final Note
 
 Don't worry if all the changes here didn't make sense we will be covering all this material in the following weeks in far greater detail.
+
+
+
+If you find yourself wanting something else to do then solve the following problem:
+
+A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+Find the largest palindrome made from the product of two 3-digit numbers.
